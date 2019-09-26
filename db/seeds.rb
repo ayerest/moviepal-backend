@@ -28,5 +28,10 @@ list3= List.create(name: "least", user: nick)
 list4= List.create(name: "least", user: ellyn)
 list5= List.create(name: "top", user: iris)
 
+binding.pry
+0
+
+
+
 
 
