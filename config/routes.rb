@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :genres
   resources :moviegenres
   resources :listmovies
   resources :preferences
