@@ -25,8 +25,12 @@ ActiveRecord::Schema.define(version: 2019_09_26_190130) do
     t.boolean "like"
     t.boolean "unlike"
     t.boolean "to_watch"
+    t.bigint "movie_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_likes_on_movie_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "listmovies", force: :cascade do |t|
@@ -83,6 +87,8 @@ ActiveRecord::Schema.define(version: 2019_09_26_190130) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "likes", "movies"
+  add_foreign_key "likes", "users"
   add_foreign_key "listmovies", "lists"
   add_foreign_key "listmovies", "movies"
   add_foreign_key "lists", "users"
