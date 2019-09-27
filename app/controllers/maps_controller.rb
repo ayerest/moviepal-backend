@@ -24,4 +24,5 @@ class MapsController < ApplicationController
         ## results should be accessed in the then statement of the fetch that hits this controller action - we can pass them into whichever function actually makes the map
     end
 
+
 end

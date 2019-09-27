@@ -24,6 +24,7 @@ gem 'byebug'
 gem 'rest-client'
 gem 'json'
 gem 'mechanize'
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
