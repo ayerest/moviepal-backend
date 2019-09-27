@@ -1,12 +1,12 @@
 class PreferencesController < ApplicationController
     def index
         preferences = Preference.all
-        render :json preferences
+        render json: preferences
     end
 
     def show
         preference = Preference.find(params[:id])
-        render :json preference
+        render json: preference
     end
 
     def edit
