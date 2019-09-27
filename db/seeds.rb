@@ -7,10 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-iris= User.create(name: "Iris", city: "Seattle", password: "1234")
-ellyn= User.create(name: "Ellyn", city: "Denver", password: "12345")
-nick= User.create(name: "Nick", city: "Indianapolis", password: "123")
-brittan= User.create(name: "Brittan", city: "NYC", password: "1")
+# iris= User.create(name: "Iris", city: "Seattle", password: "1234")
+# ellyn= User.create(name: "Ellyn", city: "Denver", password: "12345")
+# nick= User.create(name: "Nick", city: "Indianapolis", password: "123")
+# brittan= User.create(name: "Brittan", city: "NYC", password: "1")
+iris= User.create(name: "Iris", city: "Seattle")
+ellyn= User.create(name: "Ellyn", city: "Denver")
+nick= User.create(name: "Nick", city: "Indianapolis")
+brittan= User.create(name: "Brittan", city: "NYC")
 
 
 movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 summary", rotten_score: 90, imdb_score: 5, opening_date: "Sep 27, 2019")
@@ -27,6 +31,9 @@ list2= List.create(name: "favorites", user: brittan)
 list3= List.create(name: "least", user: nick)
 list4= List.create(name: "least", user: ellyn)
 list5= List.create(name: "top", user: iris)
+
+
+
 
 
 

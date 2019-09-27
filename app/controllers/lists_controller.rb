@@ -1,12 +1,12 @@
 class ListsController < ApplicationController
     def index
         lists = List.all
-        render :json lists
+        render json: lists
     end
     
     def show
         list = List.find(params[:id])
-        render :json list
+        render json: list
     end
 
     def new

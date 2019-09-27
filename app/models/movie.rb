@@ -1,7 +1,8 @@
 class Movie < ApplicationRecord
-    has_many :list_movies
-    has_many :lists, through: :list_movies
-    has_many :movie_genres
-    has_many :genres, through: :movie_genres
+    has_many :listmovies
+    has_many :lists, through: :listmovies
+    has_many :moviegenres
+    has_many :genres, through: :moviegenres
+    has_many :likes
 
 end
