@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_190130) do
+ActiveRecord::Schema.define(version: 2019_09_27_215829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genrepreferences", force: :cascade do |t|
+    t.bigint "movie_id"
+    t.bigint "preference_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_genrepreferences_on_movie_id"
+    t.index ["preference_id"], name: "index_genrepreferences_on_preference_id"
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
@@ -87,6 +96,8 @@ ActiveRecord::Schema.define(version: 2019_09_26_190130) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "genrepreferences", "movies"
+  add_foreign_key "genrepreferences", "preferences"
   add_foreign_key "likes", "movies"
   add_foreign_key "likes", "users"
   add_foreign_key "listmovies", "lists"

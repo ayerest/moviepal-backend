@@ -26,11 +26,11 @@ genre2= Genre.create(name: "genre2")
 genre3= Genre.create(name: "genre3")
 genre4= Genre.create(name: "genre4")
 
-list1= List.create(name: "favorites", user: iris)
-list2= List.create(name: "favorites", user: brittan)
-list3= List.create(name: "least", user: nick)
-list4= List.create(name: "least", user: ellyn)
-list5= List.create(name: "top", user: iris)
+# list1= List.create(name: "favorites", user: iris)
+# list2= List.create(name: "favorites", user: brittan)
+# list3= List.create(name: "least", user: nick)
+# list4= List.create(name: "least", user: ellyn)
+# list5= List.create(name: "top", user: iris)
 
 
 

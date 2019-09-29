@@ -1,4 +1,4 @@
-class TomatoesController < ApplicationController
+class RottensController < ApplicationController
 
 
     def get_movie_info
