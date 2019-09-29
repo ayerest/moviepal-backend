@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
   enable_extension "plpgsql"
 
   create_table "genrepreferences", force: :cascade do |t|
-    t.bigint "movie_id"
+    t.bigint "genre_id"
     t.bigint "preference_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_genrepreferences_on_movie_id"
+    t.index ["genre_id"], name: "index_genrepreferences_on_genre_id"
     t.index ["preference_id"], name: "index_genrepreferences_on_preference_id"
   end
 
@@ -40,23 +40,6 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_likes_on_movie_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "listmovies", force: :cascade do |t|
-    t.bigint "list_id"
-    t.bigint "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["list_id"], name: "index_listmovies_on_list_id"
-    t.index ["movie_id"], name: "index_listmovies_on_movie_id"
-  end
-
-  create_table "lists", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "moviegenres", force: :cascade do |t|
@@ -81,11 +64,9 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
 
   create_table "preferences", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "genre_id"
     t.integer "strength"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["genre_id"], name: "index_preferences_on_genre_id"
     t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 
@@ -96,15 +77,11 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "genrepreferences", "movies"
+  add_foreign_key "genrepreferences", "genres"
   add_foreign_key "genrepreferences", "preferences"
   add_foreign_key "likes", "movies"
   add_foreign_key "likes", "users"
-  add_foreign_key "listmovies", "lists"
-  add_foreign_key "listmovies", "movies"
-  add_foreign_key "lists", "users"
   add_foreign_key "moviegenres", "genres"
   add_foreign_key "moviegenres", "movies"
-  add_foreign_key "preferences", "genres"
   add_foreign_key "preferences", "users"
 end

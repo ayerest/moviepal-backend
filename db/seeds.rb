@@ -16,15 +16,26 @@ ellyn= User.create(name: "Ellyn", city: "Denver")
 nick= User.create(name: "Nick", city: "Indianapolis")
 brittan= User.create(name: "Brittan", city: "NYC")
 
+iris_pref = Preference.create(user: iris, strength: 8)
+ellyn_pref = Preference.create(user: ellyn, strength: 9)
+nick_pref = Preference.create(user: nick, strength: 3)
+brittan_pref = Preference.create(user: brittan, strength: 7)
+
 
 movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 summary", rotten_score: 90, imdb_score: 5, opening_date: "Sep 27, 2019")
 movie2= Movie.create(title: "the test 2", rating: "R", summary: "the test 2 summary", rotten_score: 99, imdb_score: 9, opening_date: "Sep 28, 2019")
 movie3 = Movie.create(title: "the test 3", rating: "PG13", summary: "the test 3 summary", rotten_score: 10, imdb_score: 2, opening_date: "Sep 29, 2019")
 
-genre1= Genre.create(name: "genre1")
-genre2= Genre.create(name: "genre2")
-genre3= Genre.create(name: "genre3")
-genre4= Genre.create(name: "genre4")
+allgenres = ["Action","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","History","Horror","Music","Musical","Mystery","Romance","Sci-Fi","Short","Sport","Superhero","Thriller","War","Western"]
+
+allgenres.each do |genre|
+    Genre.create(name: genre)
+end
+
+# genre1= Genre.create(name: "genre1")
+# genre2= Genre.create(name: "genre2")
+# genre3= Genre.create(name: "genre3")
+# genre4= Genre.create(name: "genre4")
 
 # list1= List.create(name: "favorites", user: iris)
 # list2= List.create(name: "favorites", user: brittan)
