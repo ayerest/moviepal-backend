@@ -9,7 +9,7 @@ class GenresController < ApplicationController
     end
 
     def create
-        # byebug
+        byebug
         @genre=Genre.new(name: params[:name])
         @genre.save
         render :json => @genre

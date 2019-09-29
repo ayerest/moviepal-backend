@@ -11,10 +11,10 @@
 # ellyn= User.create(name: "Ellyn", city: "Denver", password: "12345")
 # nick= User.create(name: "Nick", city: "Indianapolis", password: "123")
 # brittan= User.create(name: "Brittan", city: "NYC", password: "1")
-iris= User.create(name: "Iris", city: "Seattle")
-ellyn= User.create(name: "Ellyn", city: "Denver")
-nick= User.create(name: "Nick", city: "Indianapolis")
-brittan= User.create(name: "Brittan", city: "NYC")
+iris= User.create(name: "Iris", city: "Seattle", username: "iris", password: 1)
+ellyn= User.create(name: "Ellyn", city: "Denver", username: "ellyn", password: 1)
+nick= User.create(name: "Nick", city: "Indianapolis", username: "nick", password: 1)
+brittan= User.create(name: "Brittan", city: "NYC", username: "brittan", password: 1)
 
 
 movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 summary", rotten_score: 90, imdb_score: 5, opening_date: "Sep 27, 2019")

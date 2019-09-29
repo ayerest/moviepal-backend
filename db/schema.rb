@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
     t.string "name"
     t.string "city"
     t.datetime "created_at", null: false
