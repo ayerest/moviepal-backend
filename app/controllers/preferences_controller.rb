@@ -9,6 +9,9 @@ class PreferencesController < ApplicationController
         render json: preference
     end
 
+    def create
+    end
+
     def edit
     end
 
