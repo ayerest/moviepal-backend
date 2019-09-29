@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'maps', to: 'maps#get_map'
   post 'tomatoes', to: 'tomatoes#get_movies'
   post 'rottens', to: 'rottens#get_movie_info'
+  post 'genres', to: 'genres#create'
   resources :likes
   resources :genres
   resources :moviegenres

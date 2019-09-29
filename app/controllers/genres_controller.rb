@@ -7,9 +7,10 @@ class GenresController < ApplicationController
     def new
         @genre= Genre.new
     end
-    
+
     def create
-        @genre=Genre.new(name)
+        # byebug
+        @genre=Genre.new(name: params[:name])
         @genre.save
         render :json => @genre
 
