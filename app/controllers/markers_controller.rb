@@ -4,10 +4,7 @@ class MarkersController < ApplicationController
         lat = params["latLong"]["lat"]
         long = params["latLong"]["lng"]
         # lat=40.0274&lon=-105.2519
-        string_response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=30&type=movie_theater&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
-        # string_response = RestClient.get("https://www.hikingproject.com/data/get-campgrounds?lat=#{lat}&lon=#{long}&maxDistance=100&key=#{ENV["CAMPGROUNDS_API_KEY"]}")
-          # string_response = RestClient.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=campgrounds+in+#{search_term}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
-        # string_response = RestClient.get("https://developer.nps.gov/api/v1/campgrounds?stateCode=#{state}&limit=100&fields=addresses&api_key=#{ENV["NATIONAL_PARKS_API_KEY"]}")
+        string_response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=47.608013,-122.335167&radius=50&type=movie_theater&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
         markers_hash = JSON.parse(string_response)
 
         byebug
