@@ -15,7 +15,7 @@ class MapsController < ApplicationController
         #need to figure out why params aren't coming through
         ## params from either geolocation (not sure how to do yet) or from event listener on settings form that grabs the city from the user input
         # city = params['city'].gsub(" ","+") 
-        string_response = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json?address=Seattle&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
+        string_response = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
         response_hash = JSON.parse(string_response)
         lat_long_hash = response_hash["results"][0]["geometry"]["location"]
         formatted_address = response_hash["results"][0]["formatted_address"]

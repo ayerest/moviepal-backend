@@ -1,27 +1,25 @@
 class MarkersController < ApplicationController
     def get_markers
-        
-        lat = params["latLong"]["lat"]
-        long = params["latLong"]["lng"]
+        lat = params["latLong"]["latlong"]["lat"]
+        long = params["latLong"]["latlong"]["lng"]
         # lat=40.0274&lon=-105.2519
-        string_response = RestClient.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=47.608013,-122.335167&radius=50&type=movie_theater&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
-        markers_hash = JSON.parse(string_response)
 
-        byebug
+        string_response = RestClient.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=theater&location=#{lat},#{long}&radius=10&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
+        markers_hash = JSON.parse(string_response)
         @results = []
-        markers_hash["campgrounds"].each do |marker|
+        markers_hash["results"].each do |theater|
+          if theater["icon"] == "https://maps.gstatic.com/mapfiles/place_api/icons/movies-71.png"
             one_marker = {
-            latlong: {lat: marker["latitude"], lng: marker["longitude"]},
-            address: marker["location"],
-            camp_name: marker["name"],
-            url: marker["url"],
-            imgUrl: marker["imgUrl"]
+            latlong: theater["geometry"]["location"],
+            address: theater["formatted_address"],
+            icon: theater["icon"],
+            name: theater["name"],
+            opening_hours: theater["opening_hours"]
             }
             @results << one_marker
+          end
         end
-        
         render :json => @results
-
   
       end
 
