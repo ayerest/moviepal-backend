@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'rottens', to: 'rottens#get_movie_info'
   post 'genres', to: 'genres#create'
   post 'markers', to: 'markers#get_markers'
+  post 'theaters', to: 'theaters#get_theater_info'
   resources :likes
   resources :genres
   resources :moviegenres

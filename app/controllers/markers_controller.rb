@@ -4,7 +4,7 @@ class MarkersController < ApplicationController
         long = params["latLong"]["latlong"]["lng"]
         # lat=40.0274&lon=-105.2519
 
-        string_response = RestClient.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=theater&location=#{lat},#{long}&radius=10&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
+        string_response = RestClient.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query=theater&location=#{lat},#{long}&radius=15&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
         markers_hash = JSON.parse(string_response)
         @results = []
         markers_hash["results"].each do |theater|
@@ -14,7 +14,8 @@ class MarkersController < ApplicationController
             address: theater["formatted_address"],
             icon: theater["icon"],
             name: theater["name"],
-            opening_hours: theater["opening_hours"]
+            opening_hours: theater["opening_hours"],
+            id: theater["place_id"]
             }
             @results << one_marker
           end
