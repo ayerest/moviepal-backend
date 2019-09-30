@@ -25,6 +25,7 @@ gem 'rest-client'
 gem 'json'
 gem 'mechanize'
 gem 'pry'
+gem 'dotenv-rails'
 # gem 'open-uri'
 
 # Use Capistrano for deployment
