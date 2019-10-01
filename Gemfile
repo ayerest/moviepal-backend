@@ -20,12 +20,12 @@ gem 'faker'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'nokogiri'
-gem 'byebug'
 gem 'rest-client'
 gem 'json'
 gem 'mechanize'
 gem 'pry'
 gem 'dotenv-rails'
+gem 'jwt'
 # gem 'open-uri'
 
 # Use Capistrano for deployment
