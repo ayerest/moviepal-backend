@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post 'genres', to: 'genres#create'
   post 'markers', to: 'markers#get_markers'
   post 'theaters', to: 'theaters#get_theater_info'
+  post '/login', to: 'auth#create'
+  get '/profile', to: 'users#profile'
+  post 'notifications', to: 'notifications#send_sms'
   resources :likes
   resources :genres
   resources :moviegenres
