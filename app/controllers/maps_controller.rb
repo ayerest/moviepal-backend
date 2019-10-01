@@ -1,5 +1,4 @@
 class MapsController < ApplicationController
-    skip_before_action :authorized, only: [:get_api_key, :get_map]
 
     # before_action :get_params, only: [:get_api_key]
     ## need to add a script tag with ID to target in app.js or index.js
