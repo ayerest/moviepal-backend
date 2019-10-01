@@ -1,5 +1,4 @@
 class MarkersController < ApplicationController
-    skip_before_action :authorized, only: [:get_markers]
 
     def get_markers
         lat = params["latLong"]["latlong"]["lat"]

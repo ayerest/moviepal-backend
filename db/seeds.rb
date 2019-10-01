@@ -26,11 +26,17 @@ movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 sum
 movie2= Movie.create(title: "the test 2", rating: "R", summary: "the test 2 summary", rotten_score: 99, imdb_score: 9, opening_date: "Sep 28, 2019")
 movie3 = Movie.create(title: "the test 3", rating: "PG13", summary: "the test 3 summary", rotten_score: 10, imdb_score: 2, opening_date: "Sep 29, 2019")
 
+iris.movies << movie1
+iris.movies << movie2
+
 allgenres = ["Action","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","History","Horror","Music","Musical","Mystery","Romance","Sci-Fi","Short","Sport","Superhero","Thriller","War","Western"]
 
 allgenres.each do |genre|
     Genre.create(name: genre)
 end
+
+movie1.genres << Genre.all.first
+movie1.genres << Genre.all.last
 
 # genre1= Genre.create(name: "genre1")
 # genre2= Genre.create(name: "genre2")
