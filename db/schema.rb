@@ -72,11 +72,10 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
-    # get rid of password after working
     t.string "name"
     t.string "city"
     t.string "password_digest"
+    t.boolean "notifications"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

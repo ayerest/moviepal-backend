@@ -1,4 +1,6 @@
 class MapsController < ApplicationController
+    skip_before_action :authorized, only: [:get_api_key, :get_map]
+
     # before_action :get_params, only: [:get_api_key]
     ## need to add a script tag with ID to target in app.js or index.js
     ## once targetted we can change the script tag's src attribute to the google maps url
@@ -11,11 +13,10 @@ class MapsController < ApplicationController
 
     def get_map
         # binding.pry
-        # byebug
         #need to figure out why params aren't coming through
         ## params from either geolocation (not sure how to do yet) or from event listener on settings form that grabs the city from the user input
         # city = params['city'].gsub(" ","+") 
-        string_response = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json?address=Seattle&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
+        string_response = RestClient.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}")
         response_hash = JSON.parse(string_response)
         lat_long_hash = response_hash["results"][0]["geometry"]["location"]
         formatted_address = response_hash["results"][0]["formatted_address"]

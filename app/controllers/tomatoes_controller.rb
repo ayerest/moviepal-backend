@@ -4,6 +4,8 @@ require 'nokogiri'
 require 'open-uri'
 
 class TomatoesController < ApplicationController
+    skip_before_action :authorized, only: [:get_movies, :get_map]
+
     def get_movies
         mechanize = Mechanize.new
         ## imdb since rotten tomatoes is a bust 
