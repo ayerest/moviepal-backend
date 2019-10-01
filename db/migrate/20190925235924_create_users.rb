@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :password_digest
       t.boolean :notifications
+      t.string :phone_number
       # t.references :preference, foreign_key: true
 
       t.timestamps
