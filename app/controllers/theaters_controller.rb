@@ -7,6 +7,12 @@ class TheatersController < ApplicationController
         theater_photos = response_hash["result"]["photos"]
         theater_url = response_hash["result"]["url"]
         theater_addy = response_hash["result"]["formatted_address"]
+        
+        mechanize = Mechanize.new
+        theatre_page = mechanize.get(theater_url)
+        # byebug
+
+
         @results = {
             name: theater_name,
             pics: theater_photos,
