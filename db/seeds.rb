@@ -22,9 +22,9 @@ nick_pref = Preference.create(user: nick, strength: 3)
 brittan_pref = Preference.create(user: brittan, strength: 7)
 
 
-movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 summary", rotten_score: 90, imdb_score: 5, opening_date: "Sep 27, 2019")
-movie2= Movie.create(title: "the test 2", rating: "R", summary: "the test 2 summary", rotten_score: 99, imdb_score: 9, opening_date: "Sep 28, 2019")
-movie3 = Movie.create(title: "the test 3", rating: "PG13", summary: "the test 3 summary", rotten_score: 10, imdb_score: 2, opening_date: "Sep 29, 2019")
+movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 summary", imdb_score: 5, opening_date: "Sep 27, 2019")
+movie2= Movie.create(title: "the test 2", rating: "R", summary: "the test 2 summary", imdb_score: 9, opening_date: "Sep 28, 2019")
+movie3 = Movie.create(title: "the test 3", rating: "PG13", summary: "the test 3 summary", imdb_score: 2, opening_date: "Sep 29, 2019")
 
 iris.movies << movie1
 iris.movies << movie2

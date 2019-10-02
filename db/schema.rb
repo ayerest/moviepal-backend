@@ -55,9 +55,13 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
     t.string "title"
     t.string "rating"
     t.string "summary"
-    t.integer "rotten_score"
     t.integer "imdb_score"
     t.datetime "opening_date"
+    t.string "poster_img"
+    t.string "stars"
+    t.string "trailer_url"
+    t.string "showtimes_url"
+    t.string "imdb_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
