@@ -53,12 +53,16 @@ class TomatoesController < ApplicationController
                 
                 my_movie_hash["summary"] = summary.strip
             
-                stars = list_item.children[1].children[1].children[1].children[3].children[11].text.split("\n").join("").strip
+                stars = list_item.children[1].children[1].children[1].children[3].children[11].text.split("\n").join("").strip.split(":")
+                stars.shift
                 my_movie_hash["stars"] = stars
+                # byebug
 
                 trailer = list_item.children[1].children[1].children[3].children[1].children[3].attributes["href"]
                 if !!trailer
-                    trailer = "https://www.imdb.com" + trailer.value
+                    trailer = trailer.value.split("/")
+                    trailer = trailer[trailer.length - 1]
+                    trailer = "https://www.imdb.com/videoembed/" + trailer
                 end
 
                 my_movie_hash["trailer"] = trailer
