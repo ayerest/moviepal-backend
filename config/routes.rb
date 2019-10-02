@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
   post 'notifications', to: 'notifications#send_sms'
+  patch 'likes', to: 'likes#update'
   resources :likes
   resources :genres
   resources :moviegenres
