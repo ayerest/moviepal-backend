@@ -65,7 +65,7 @@ class TomatoesController < ApplicationController
                     trailer = "https://www.imdb.com/videoembed/" + trailer
                 end
 
-                my_movie_hash["trailer"] = trailer
+                my_movie_hash["trailer_url"] = trailer
                 # --> "/video/imdb/vi3789077529"  the trailer will be at https://www.imdb.com/videoplayer/vi3789077529
 
                 showtimes = list_item.children[1].children[1].children[3].children[1].children[10]
@@ -81,7 +81,7 @@ class TomatoesController < ApplicationController
                         user.movies << movie_in_db
                     end
                 else
-                    new_movie = Movie.create(title: my_movie_hash["title"], summary: my_movie_hash["summary"], rating: my_movie_hash["rating"], poster_img: my_movie_hash["poster_img"], trailer_url: my_movie_hash["trailer"], stars: my_movie_hash["stars"], showtimes_url: my_movie_hash["showtimes"], imdb_url: my_movie_hash["imdb_url"] )
+                    new_movie = Movie.create(title: my_movie_hash["title"], summary: my_movie_hash["summary"], rating: my_movie_hash["rating"], poster_img: my_movie_hash["poster_img"], trailer_url: my_movie_hash["trailer_url"], stars: my_movie_hash["stars"], showtimes_url: my_movie_hash["showtimes"], imdb_url: my_movie_hash["imdb_url"] )
                     user.movies << new_movie
                 end
 
