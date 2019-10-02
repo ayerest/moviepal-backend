@@ -15,6 +15,11 @@ class MoviesController < ApplicationController
     def create
     end
 
+    def update
+        movie = Movie.find(params[:id])
+        byebug
+    end
+
     def destroy
     end
 end

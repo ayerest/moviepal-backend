@@ -1,18 +1,20 @@
 # require 'twilio-ruby'
 
-class NotificationsController < ApplicationController
+class NotificationsController < ApplicationJob
+    queue_as :default
     # include DelayedAction
 
     # delayed_action [:sms_deets]
     def send_sms 
-        NotificationsController.sms_deets.set(wait_until: 5.minutes.from_now).perform_later
+        NotificationsController.sms_deets(params[:movies]).send(wait_until: 1.minutes.from_now).perform_later
     end
-    def self.sms_deets
+    def self.sms_deets(movies)
         ##ideally need the user object to hit this controller action
         ##should be hit when notifications = true
         ##would be nice to tell them how many movies are in their "current movies" queue
         ## -> that info is from tomatoes controller/scraping
         byebug
+        # sleep(2000)
         ## what causes this controller action to get hit?
         ## ideally would happen on a time interval...once a day?
         account_sid = ENV["TWILIO_ACCOUNT_SID"]
@@ -26,7 +28,7 @@ class NotificationsController < ApplicationController
         client.messages.create(
         from: from,
         to: to,
-        body: "You have #{numMovies} new movies to check out!"
+        body: "You have #{movies.length} new movies to check out!"
         )
         
         @results = {}
@@ -39,4 +41,5 @@ class NotificationsController < ApplicationController
     # end
 
     # handle_asynchronously :send_sms, :run_at => Proc.new { 5.minutes.from_now }
+    
 end
