@@ -28,6 +28,15 @@ gem 'dotenv-rails'
 gem 'jwt'
 # gem 'open-uri'
 
+# Use delayed job for running background jobs
+gem 'delayed_job_active_record'
+
+# Need daemons to start delayed_job
+gem 'daemons'
+
+gem 'twilio-ruby', '~> 5.27.0'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -38,6 +38,10 @@ end
 movie1.genres << Genre.all.first
 movie1.genres << Genre.all.last
 
+iris.preference.genres << Genre.all[2]
+iris.preference.genres << Genre.all.first
+iris.save
+
 # genre1= Genre.create(name: "genre1")
 # genre2= Genre.create(name: "genre2")
 # genre3= Genre.create(name: "genre3")
