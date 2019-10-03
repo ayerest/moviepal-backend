@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_152341) do
+ActiveRecord::Schema.define(version: 2019_10_03_055152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,12 @@ ActiveRecord::Schema.define(version: 2019_10_02_152341) do
     t.string "trailer_url"
     t.string "showtimes_url"
     t.string "imdb_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.boolean "turned_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'notifications', to: 'notifications#send_sms'
   patch 'likes', to: 'likes#update'
   patch 'users', to: 'users#update'
+  post 'preferences', to: 'preferences#create'
   resources :likes
   resources :genres
   resources :moviegenres
