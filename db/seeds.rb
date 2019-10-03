@@ -11,8 +11,8 @@
 # ellyn= User.create(name: "Ellyn", city: "Denver", password: "12345")
 # nick= User.create(name: "Nick", city: "Indianapolis", password: "123")
 # brittan= User.create(name: "Brittan", city: "NYC", password: "1")
-iris= User.create(name: "Iris", city: "Seattle", username: "iris", password: "1", phone_number: "1112223333")
-ellyn= User.create(name: "Ellyn", city: "Denver", username: "ellyn", password: "1", phone_number: "4445556666")
+iris= User.create(name: "Iris", city: "Seattle", username: "iris", password: "1", phone_number: "1112223333", notifications: true)
+ellyn= User.create(name: "Ellyn", city: "Denver", username: "ellyn", password: "1", phone_number: "4445556666", notifications: false)
 nick= User.create(name: "Nick", city: "Indianapolis", username: "nick", password: "1")
 brittan= User.create(name: "Brittan", city: "NYC", username: "brittan", password: "1")
 
@@ -28,6 +28,10 @@ movie3 = Movie.create(title: "the test 3", rating: "PG13", summary: "the test 3 
 
 iris.movies << movie1
 iris.movies << movie2
+ellyn.movies << movie2
+ellyn.movies << movie3
+
+nick.movies << movie1
 
 allgenres = ["Action","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","History","Horror","Music","Musical","Mystery","Romance","Sci-Fi","Short","Sport","Superhero","Thriller","War","Western"]
 

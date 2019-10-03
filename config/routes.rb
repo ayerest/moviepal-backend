@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile'
   post 'notifications', to: 'notifications#send_sms'
   patch 'likes', to: 'likes#update'
+  patch 'users', to: 'users#update'
   resources :likes
   resources :genres
   resources :moviegenres
