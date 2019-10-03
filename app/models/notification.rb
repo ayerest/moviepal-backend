@@ -1,19 +1,19 @@
 # # require 'twilio-ruby'
 
-# class NotificationsController < ApplicationJob
-    
+# class Notification < ApplicationRecord
 
-#     def send_sms 
+#     # def send_sms 
+#     #     byebug
+#     #     # NotificationsController.sms_deets(params[:movies]).send(wait_until: 1.minutes.from_now).perform_later
+#     # end
+
+#     def self.send_sms(user)
 #         byebug
-#         # NotificationsController.sms_deets(params[:movies]).send(wait_until: 1.minutes.from_now).perform_later
-#     end
-
-#     def sms_deets
 #         ##ideally need the user object to hit this controller action
 #         ##should be hit when notifications = true
 #         ##would be nice to tell them how many movies are in their "current movies" queue
 #         ## -> that info is from tomatoes controller/scraping
-#         byebug
+#         # byebug
 #         # sleep(2000)
 #         ## what causes this controller action to get hit?
 #         ## ideally would happen on a time interval...once a day?
@@ -28,11 +28,11 @@
 #         client.messages.create(
 #         from: from,
 #         to: to,
-#         body: "You have #{movies.length} new movies to check out!"
+#         body: "You have #{user.movies.length} new movies to check out!"
 #         )
         
-#         @results = {}
-#         render :json => @results
+#         # @results = {}
+#         # render :json => @results
 #         ## results should be accessed in the then statement of the fetch that hits this controller action - we can pass them into whichever function actually makes the map
 #     end
 
@@ -40,10 +40,6 @@
 #         5.minutes.fom_now
 #     end
 
-#     handle_asynchronously :send_sms, :run_at => Proc.new { 5.minutes.from_now }
-#     private
-
-#     def notification_params
-#         params.permit(:movies, :user)
-#     end
+#     handle_asynchronously :send_sms, :run_at => Proc.new { |i| i.when_to_run }
+    
 # end
