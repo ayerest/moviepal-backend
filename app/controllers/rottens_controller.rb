@@ -2,17 +2,15 @@ class RottensController < ApplicationController
 
 
     def get_movie_user_like_record
-        
         myLike = Like.find_by(user_id: rottens_params[:user_id], movie_id: rottens_params[:movie_id])
-        like_user_id= User.find_by(id: params[:user_id])
-        like_movie_id= Movie.find_by(id: params[:movie_id])
-        findLikeId=like_user_id.find(movie_id: params[:movie_id])
-       
-        byebug
-        Like.update(id: findLikeId.id, user_id: like_user_id.id, movie_id: like_movie_id.id, like: (!findLikeId.like), unlike: findLikeId.unlike, to_watch: findLikeId.to_watch)
+        user = User.find_by(id: params[:user_id])
+        movie= Movie.find_by(id: params[:movie_id])
+        # findLikeId=like_user_id.find(movie_id: params[:movie_id])
+        myLike.update(like: (!myLike.like))
 
-        byebug
-        render json: findLikeId
+        # like.update(id: like.id, user_id: like_user_id.id, movie_id: like_movie_id.id, like: (!findLikeId.like), unlike: findLikeId.unlike, to_watch: findLikeId.to_watch)
+        # byebug
+        render json: myLike
     end
 
     # def show
@@ -25,7 +23,7 @@ class RottensController < ApplicationController
     # have to have strong params for both the rottens and likes controller
     
     def rottens_params
-        params.require(:like).permit(:user_id, :movie_id, :like, :unlike, :to_see)
+        params.permit(:user_id, :movie_id, :like, :unlike, :to_see)
     end
 
     
