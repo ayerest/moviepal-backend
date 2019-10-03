@@ -14,7 +14,7 @@ class Preference < ApplicationRecord
 
     def send_sms
         user = self.user
-        byebug
+        # byebug
         ##ideally need the user object to hit this controller action
         ##should be hit when notifications = true
         ##would be nice to tell them how many movies are in their "current movies" queue
@@ -47,7 +47,12 @@ class Preference < ApplicationRecord
         Time.now + 2.minutes
     end
 
+
     # handle_asynchronously :send_sms, :run_at => Proc.new { 2.minutes.from_now }
+
+    private
+
+
     
 end
 
