@@ -13,7 +13,7 @@ class PreferencesController < ApplicationController
         user = params[:user]
         # notification = Notification.create()
         pref = Preference.create(user_id: user["id"], strength: 9)
-        pref.delay.send_sms(user)
+        # pref.delay.send_sms(user)
         # byebug
         # render :json => user
     end
