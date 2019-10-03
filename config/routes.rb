@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch 'likes', to: 'likes#update'
   patch 'users', to: 'users#update'
   post 'preferences', to: 'preferences#create'
+  post 'genrepreferences', to: 'genrepreferences#create'
   resources :likes
   resources :genres
   resources :moviegenres
