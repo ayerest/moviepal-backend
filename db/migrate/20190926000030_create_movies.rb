@@ -4,9 +4,13 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :rating
       t.string :summary
-      t.integer :rotten_score
       t.integer :imdb_score
       t.datetime :opening_date
+      t.string :poster_img
+      t.string :stars
+      t.string :trailer_url
+      t.string :showtimes_url
+      t.string :imdb_url
 
       t.timestamps
     end

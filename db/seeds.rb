@@ -11,8 +11,8 @@
 # ellyn= User.create(name: "Ellyn", city: "Denver", password: "12345")
 # nick= User.create(name: "Nick", city: "Indianapolis", password: "123")
 # brittan= User.create(name: "Brittan", city: "NYC", password: "1")
-iris= User.create(name: "Iris", city: "Seattle", username: "iris", password: "1")
-ellyn= User.create(name: "Ellyn", city: "Denver", username: "ellyn", password: "1")
+iris= User.create(name: "Iris", city: "Seattle", username: "iris", password: "1", phone_number: "1112223333", notifications: true)
+ellyn= User.create(name: "Ellyn", city: "Denver", username: "ellyn", password: "1", phone_number: "4445556666", notifications: false)
 nick= User.create(name: "Nick", city: "Indianapolis", username: "nick", password: "1")
 brittan= User.create(name: "Brittan", city: "NYC", username: "brittan", password: "1")
 
@@ -22,15 +22,29 @@ nick_pref = Preference.create(user: nick, strength: 3)
 brittan_pref = Preference.create(user: brittan, strength: 7)
 
 
-movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 summary", rotten_score: 90, imdb_score: 5, opening_date: "Sep 27, 2019")
-movie2= Movie.create(title: "the test 2", rating: "R", summary: "the test 2 summary", rotten_score: 99, imdb_score: 9, opening_date: "Sep 28, 2019")
-movie3 = Movie.create(title: "the test 3", rating: "PG13", summary: "the test 3 summary", rotten_score: 10, imdb_score: 2, opening_date: "Sep 29, 2019")
+movie1= Movie.create(title: "the test 1", rating: "PG", summary: "the test 1 summary", imdb_score: 5, opening_date: "Sep 27, 2019")
+movie2= Movie.create(title: "the test 2", rating: "R", summary: "the test 2 summary", imdb_score: 9, opening_date: "Sep 28, 2019")
+movie3 = Movie.create(title: "the test 3", rating: "PG13", summary: "the test 3 summary", imdb_score: 2, opening_date: "Sep 29, 2019")
+
+iris.movies << movie1
+iris.movies << movie2
+ellyn.movies << movie2
+ellyn.movies << movie3
+
+nick.movies << movie1
 
 allgenres = ["Action","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","History","Horror","Music","Musical","Mystery","Romance","Sci-Fi","Short","Sport","Superhero","Thriller","War","Western"]
 
 allgenres.each do |genre|
     Genre.create(name: genre)
 end
+
+movie1.genres << Genre.all.first
+movie1.genres << Genre.all.last
+
+iris.preference.genres << Genre.all[2]
+iris.preference.genres << Genre.all.first
+iris.save
 
 # genre1= Genre.create(name: "genre1")
 # genre2= Genre.create(name: "genre2")

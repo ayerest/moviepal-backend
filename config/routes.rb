@@ -3,13 +3,17 @@ Rails.application.routes.draw do
   get 'maps', to: 'maps#get_api_key'
   post 'maps', to: 'maps#get_map'
   post 'tomatoes', to: 'tomatoes#get_movies'
-  post 'rottens', to: 'rottens#get_movie_info'
+  post 'rottens', to: 'rottens#get_movie_user_like_record'
   post 'genres', to: 'genres#create'
   post 'markers', to: 'markers#get_markers'
   post 'theaters', to: 'theaters#get_theater_info'
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
   post 'notifications', to: 'notifications#send_sms'
+  patch 'likes', to: 'likes#update'
+  patch 'users', to: 'users#update'
+  post 'preferences', to: 'preferences#create'
+  post 'genrepreferences', to: 'genrepreferences#create'
   resources :likes
   resources :genres
   resources :moviegenres

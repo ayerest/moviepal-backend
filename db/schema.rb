@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_27_215829) do
+ActiveRecord::Schema.define(version: 2019_10_03_055152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
 
   create_table "genrepreferences", force: :cascade do |t|
     t.bigint "genre_id"
@@ -55,9 +70,19 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
     t.string "title"
     t.string "rating"
     t.string "summary"
-    t.integer "rotten_score"
     t.integer "imdb_score"
     t.datetime "opening_date"
+    t.string "poster_img"
+    t.string "stars"
+    t.string "trailer_url"
+    t.string "showtimes_url"
+    t.string "imdb_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.boolean "turned_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,6 +101,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_215829) do
     t.string "city"
     t.string "password_digest"
     t.boolean "notifications"
+    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

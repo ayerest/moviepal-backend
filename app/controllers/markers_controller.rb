@@ -1,7 +1,7 @@
 class MarkersController < ApplicationController
-    skip_before_action :authorized, only: [:get_markers]
 
     def get_markers
+      # byebug
         lat = params["latLong"]["latlong"]["lat"]
         long = params["latLong"]["latlong"]["lng"]
         # lat=40.0274&lon=-105.2519
@@ -12,6 +12,7 @@ class MarkersController < ApplicationController
         markers_hash["results"].each do |theater|
           if theater["icon"] == "https://maps.gstatic.com/mapfiles/place_api/icons/movies-71.png"
             one_marker = {
+
             latlong: theater["geometry"]["location"],
             address: theater["formatted_address"],
             icon: theater["icon"],

@@ -7,7 +7,16 @@ class UsersController < ApplicationController
         render json: users
     end
 
+    def show
+        @user= User.find(user_params)
+        render json: user
+    end
+
     def profile
+        render json: {user: UserSerializer.new(current_user)}, status: :accepted
+    end
+
+    def show
         render json: {user: UserSerializer.new(current_user)}, status: :accepted
     end
 
@@ -22,9 +31,17 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        @user = User.find(params[:id])
+        @user.update(name: params[:name], city: params[:city])
+        @user.save
+        render json: @user
+        # redirect_to @profile
+    end
+
     private
 
     def user_params
-        params.require(:user).permit(:username, :password_digest, :city, :name)
+        params.require(:user).permit(:username, :notifications, :password_digest, :city, :name, :phone_number)
     end
 end
